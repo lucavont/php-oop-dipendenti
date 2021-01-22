@@ -1,9 +1,13 @@
 <?php
     require_once ('dipendenti.php');
+
+    try {    
+        $dipendente1 = new ImpiegatoSuCommissione('Luca', 'Cavretti', 'CODICEFISCALE', '00000', 1000,'Ciao',500);
+    } catch (Exception $e){
+        echo $e->getMessage();
+    }
+
     
-    $dipendente1 = new ImpiegatoSuCommissione('Luca', 'Cavretti', 'CODICEFISCALE', '00000', 1000,'Ciao',500);
-
-    echo $dipendente1->to_string();
-
-
-?>
+    
+    ?>
+    <php> <?= $dipendente1->to_string(); ?> </php>

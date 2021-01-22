@@ -6,6 +6,7 @@ class Persona {
     private $codice_fiscale;
 
     public function __construct($nome, $cognome, $codice_fiscale){
+
         $this->nome = $nome;
         $this->cognome = $cognome;
         $this->codice_fiscale = $codice_fiscale;
@@ -22,9 +23,14 @@ class Impiegato extends Persona {
     private $compenso;
 
     public function __construct($nome, $cognome, $codice_fiscale, $codice_impiegato, $compenso){
+
         
         parent::__construct($nome, $cognome, $codice_fiscale);
-
+        
+        if (!ctype_alpha($nome)) {
+            throw new Exception('Il nome deve contenere solo lettere');
+         }
+         
         $this->codice_impiegato = $codice_impiegato;
         $this->compenso = $compenso;
     }
